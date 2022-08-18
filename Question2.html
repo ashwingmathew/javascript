@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+  <h2>Signup</h2>
+  <form name="form" onsubmit = "return(validate());">
+  Name:<br>
+  <input type="text" id="name"><br>
+  Email:<br>  
+  <input type="text" id="email"><br>
+  Phone:<br>
+  <input type="text" id="phone"><br>
+  Password:<br>
+  <input type="text" id="pass"><br>
+</form>
+  <button id="submit" onclick="return(validate());">Submit</button>
+<script type="text/javascript">
+  function validate() {
+    if(document.form.name.value.length < 3 ) {
+      alert( "Name must contain minimum 3 characters!" );
+      document.form.name.focus();
+      return false;
+    }
+    if(!/^[a-zA-Z]*$/g.test(document.form.name.value)) {
+        alert("Name should only contain alphabets!");
+        document.form.name.focus();
+        return false;
+    }
+    if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g.test(document.form.email.value)) {
+      alert("You have entered an invalid email address!");
+      document.form.email.focus();
+      return false;
+    }
+    if(document.form.phone.value.length < 10 ) {
+      alert("Phone must contain 10 numbers!");
+      document.form.phone.focus();
+      return false;
+    }
+    if(!/^[0-9]*$/g.test(document.form.phone.value)){
+      alert("Invalid phone number!");
+      document.form.phone.focus();
+      return false;
+    }
+    if(document.form.pass.value.length < 6 ) {
+      alert("Password must contain minimum 6 characters!");
+      document.form.pass.focus();
+      return false;
+    }
+  }
+</script>
+</body>
+</html>
